@@ -1,0 +1,45 @@
+body{
+    background: linear-gradient(to bottom,#ffccff,#cc99ff);
+    font-family: cursive;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    background-color: white;
+    border-radius: 10px;
+    min-width: 500px;
+    max-height: 400px;
+    min-height: 390px;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 0 13px black;
+}
+button{
+    padding: 3px;
+    border-radius: 7px;
+    background: linear-gradient(to bottom,#ffccff,#cc99ff);
+    border-color: black;
+    margin: 25px;
+    transition: 0.3s ease all;
+    box-shadow: 0 0 5px black;
+    width: 100px;
+    font-family: cursive;
+}
+button:hover{
+    border-color: black;
+    scale: 1.05;
+}
+input{
+    width: 250px;
+    border-radius: 7px;
+    padding: 10px;
+    font-family: cursive;
+}
+#result{
+    margin-top: 15px;
+    font-weight: bold;
+    text-shadow: 1px 1px #ff66ff;
+    color: #cc33ff;
+}

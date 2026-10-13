@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blob Maker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="output">
+            <div class="blob"></div>
+        </div>
+        <div class="dimensions">
+            <div>
+                <label for="height">Height</label>
+                <input type="number" value="150" id="height">
+            </div>
+            <div>
+                <label for="width">Width</label> <!-- Fixed typo here -->
+                <input type="number" value="150" id="width">
+            </div>
+        </div>
+        <div class="sliders">
+            <input type="range" min="0" max="100" value="30" class="slider">
+            <input type="range" min="0" max="100" value="80" class="slider">
+            <input type="range" min="0" max="100" value="60" class="slider">
+            <input type="range" min="0" max="100" value="40" class="slider">
+        </div>
+        <input type="text" id="css" readonly>
+        <button id="copy">Copy</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0d12">
+  <meta name="description" content="A collection of 10 interactive JavaScript mini-projects. Explore creative tools, calculators, and everyday utilities.">
+  <title>JS Lab — 10 JavaScript Projects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{color-scheme:dark;--bg:#0b0d12;--panel:#12151d;--panel2:#171b25;--line:rgba(255,255,255,.09);--text:#f3f5fa;--muted:#9ba4b5;--lime:#c5f467;--cyan:#75e1df;--purple:#b8a1ff}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 15% 0%,rgba(117,225,223,.09),transparent 35%),radial-gradient(ellipse at 90% 10%,rgba(184,161,255,.09),transparent 30%),var(--bg);color:var(--text);font-family:Manrope,system-ui,sans-serif;min-height:100vh}
+    a{color:inherit;text-decoration:none}button,input{font:inherit}.shell{width:min(1160px,calc(100% - 40px));margin:auto}
+    .topbar{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.04em}.brand-mark{width:35px;height:35px;border-radius:11px;background:var(--lime);color:#11160a;display:grid;place-items:center;font-family:"DM Mono",monospace;font-weight:500;font-size:17px;box-shadow:0 0 30px rgba(197,244,103,.15)}
+    .brand span:last-child{font-size:17px}.brand small{font-family:"DM Mono",monospace;color:var(--muted);font-size:11px;font-weight:400;letter-spacing:.06em;margin-left:4px}
+    .top-link{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px}.top-link:hover{color:var(--lime)}
+    .hero{padding:76px 0 48px;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(197,244,103,.22);background:rgba(197,244,103,.06);padding:8px 11px;border-radius:100px;color:var(--lime);font:11px "DM Mono",monospace;letter-spacing:.08em;text-transform:uppercase}
+    .pulse{width:7px;height:7px;background:var(--lime);border-radius:50%;box-shadow:0 0 12px var(--lime)}
+    h1{font-size:clamp(42px,6vw,76px);line-height:1.02;letter-spacing:-.075em;margin:22px 0 18px;max-width:680px}
+    h1 em{font-style:normal;color:var(--lime)}.intro{color:var(--muted);font-size:16px;line-height:1.8;max-width:590px;margin:0}
+    .hero-actions{display:flex;gap:12px;align-items:center;margin-top:28px;flex-wrap:wrap}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 17px;border-radius:12px;font-weight:800;font-size:13px;transition:transform .2s,border-color .2s}.button:hover{transform:translateY(-2px)}
+    .button.primary{background:var(--lime);color:#15190f}.button.secondary{border:1px solid var(--line);background:rgba(255,255,255,.025);color:var(--text)}
+    .hero-art{position:relative;min-height:285px;display:grid;place-items:center}
+    .orbit{position:absolute;width:260px;height:260px;border:1px solid rgba(255,255,255,.09);border-radius:50%;transform:rotate(-22deg)}
+    .orbit:before,.orbit:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.07);border-radius:50%;inset:24px}.orbit:after{inset:50px}
+    .code-card{z-index:1;width:min(300px,100%);border:1px solid rgba(255,255,255,.13);background:linear-gradient(145deg,rgba(28,33,45,.96),rgba(16,19,27,.96));border-radius:18px;padding:18px;box-shadow:0 30px 80px #0008;transform:rotate(4deg)}
+    .window-dots{display:flex;gap:6px;border-bottom:1px solid var(--line);padding-bottom:13px;margin-bottom:14px}.window-dots i{width:7px;height:7px;border-radius:50%;background:#626b7c}.window-dots i:first-child{background:#ff7777}.window-dots i:nth-child(2){background:#f6d56b}.window-dots i:nth-child(3){background:#91e59c}
+    .code-line{font:12px/2 "DM Mono",monospace;color:#9ba4b5}.code-line .key{color:var(--purple)}.code-line .value{color:var(--lime)}.code-line .fn{color:var(--cyan)}
+    .floating-tag{position:absolute;padding:10px 12px;background:#1a202b;border:1px solid var(--line);border-radius:11px;font:11px "DM Mono",monospace;color:var(--cyan);box-shadow:0 12px 35px #0005}.tag-one{top:27px;right:2px;transform:rotate(5deg)}.tag-two{bottom:24px;left:0;color:var(--lime);transform:rotate(-7deg)}
+    .stats{display:flex;gap:0;border-block:1px solid var(--line);padding:20px 0;margin-bottom:35px}.stat{padding:0 28px;border-right:1px solid var(--line)}.stat:first-child{padding-left:0}.stat:last-child{border:0}.stat strong{display:block;font-size:21px;letter-spacing:-.05em}.stat span{color:var(--muted);font-size:11px;letter-spacing:.04em}
+    .section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:20px}.section-kicker{font:11px "DM Mono",monospace;color:var(--lime);letter-spacing:.12em;text-transform:uppercase}.section-head h2{font-size:28px;letter-spacing:-.055em;margin:8px 0 0}.section-head p{font-size:12px;color:var(--muted);margin:0 0 3px}
+    .toolbar{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}.search-wrap{position:relative;flex:1;min-width:220px}.search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#7f899b}.search{width:100%;padding:13px 14px 13px 42px;border:1px solid var(--line);border-radius:12px;background:#11141b;color:var(--text);outline:none;font-size:13px}.search:focus{border-color:rgba(197,244,103,.5)}.filters{display:flex;gap:7px;flex-wrap:wrap}.filter{border:1px solid var(--line);background:#11141b;color:var(--muted);padding:10px 13px;border-radius:10px;font-size:11px;cursor:pointer}.filter.active,.filter:hover{border-color:rgba(197,244,103,.45);background:rgba(197,244,103,.08);color:var(--lime)}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding-bottom:76px}.project{position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:228px;padding:19px;border:1px solid var(--line);border-radius:17px;background:linear-gradient(150deg,rgba(24,28,39,.94),rgba(16,19,26,.96));transition:transform .22s,border-color .22s,background .22s}
+    .project:hover{transform:translateY(-4px);border-color:rgba(197,244,103,.3);background:linear-gradient(150deg,rgba(30,36,46,.98),rgba(17,20,28,.98))}
+    .project-top{display:flex;justify-content:space-between;align-items:center}.icon-box{width:43px;height:43px;border-radius:13px;display:grid;place-items:center;background:var(--tint);color:var(--accent);font-size:21px;border:1px solid color-mix(in srgb,var(--accent),transparent 83%)}
+    .project-number{font:11px "DM Mono",monospace;color:#6e7788}.project h3{font-size:17px;letter-spacing:-.035em;margin:19px 0 7px}.project p{font-size:12px;line-height:1.7;color:var(--muted);margin:0 0 19px;max-width:340px}
+    .card-bottom{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}.chip{font:10px "DM Mono",monospace;padding:6px 8px;border:1px solid var(--line);border-radius:7px;color:#aeb6c5}.launch{font-size:12px;font-weight:800;color:var(--lime);display:inline-flex;align-items:center;gap:7px}.launch span{transition:transform .2s}.project:hover .launch span{transform:translate(3px,-3px)}
+    .empty{grid-column:1/-1;border:1px dashed var(--line);padding:40px;text-align:center;border-radius:15px;color:var(--muted);display:none}
+    footer{border-top:1px solid var(--line);padding:23px 0 30px;display:flex;justify-content:space-between;gap:15px;color:var(--muted);font-size:11px}.footer-brand{color:var(--text);font-weight:800}
+    @media(max-width:850px){.hero{grid-template-columns:1fr;padding-top:55px}.hero-art{display:none}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero h1{max-width:600px}}
+    @media(max-width:560px){.shell{width:min(100% - 28px,1160px)}.topbar{height:65px}.brand small{display:none}.top-link{font-size:11px}.hero{padding:44px 0 32px}.intro{font-size:14px}.stats{justify-content:space-between}.stat{padding:0 14px}.stat strong{font-size:18px}.stat span{font-size:9px}.section-head{align-items:start;flex-direction:column;gap:8px}.section-head h2{font-size:25px}.grid{grid-template-columns:1fr;gap:11px}.project{min-height:205px}.filters{width:100%}.filter{flex:1}.toolbar{gap:9px}footer{flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="shell topbar">
+    <a class="brand" href="./" aria-label="JS Lab home"><span class="brand-mark">JS</span><span>JS LAB <small>/ MINI PROJECTS</small></span></a>
+    <a class="top-link" href="#projects">Explore projects <span aria-hidden="true">↘</span></a>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <div class="eyebrow"><span class="pulse"></span> A collection of things built with JavaScript</div>
+        <h1>Small projects.<br><em>Real interactions.</em></h1>
+        <p class="intro">Ten little experiments in web development — from useful calculators to creative generators. Pick one, open it, and try it out.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">Explore all projects <span aria-hidden="true">↘</span></a>
+          <a class="button secondary" href="#about">About this collection <span aria-hidden="true">＋</span></a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit"></div>
+        <div class="code-card">
+          <div class="window-dots"><i></i><i></i><i></i></div>
+          <div class="code-line"><span class="key">const</span> projects = <span class="value">10</span>;</div>
+          <div class="code-line"><span class="key">function</span> <span class="fn">makeSomething</span>() {</div>
+          <div class="code-line">&nbsp;&nbsp;<span class="key">return</span> <span class="value">'interactive'</span>;</div>
+          <div class="code-line">}</div>
+          <div class="code-line" style="color:#c5f467;margin-top:9px">✓ ready to explore</div>
+        </div>
+        <div class="floating-tag tag-one">10 / 10 projects</div>
+        <div class="floating-tag tag-two">HTML · CSS · JS</div>
+      </div>
+    </section>
+
+    <div class="stats" aria-label="Collection summary">
+      <div class="stat"><strong>10</strong><span>PROJECTS</span></div>
+      <div class="stat"><strong>3</strong><span>CORE TECHNOLOGIES</span></div>
+      <div class="stat"><strong>∞</strong><span>THINGS TO TRY</span></div>
+    </div>
+
+    <section id="projects">
+      <div class="section-head">
+        <div><div class="section-kicker">The collection</div><h2>Choose your next click.</h2></div>
+        <p>Every card opens its own project.</p>
+      </div>
+      <div class="toolbar">
+        <label class="search-wrap">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>
+          <input id="search" class="search" type="search" placeholder="Search projects..." aria-label="Search projects">
+        </label>
+        <div class="filters" aria-label="Filter projects">
+          <button class="filter active" data-filter="All" type="button">All</button>
+          <button class="filter" data-filter="Tools" type="button">Tools</button>
+          <button class="filter" data-filter="Creative" type="button">Creative</button>
+          <button class="filter" data-filter="Calculators" type="button">Calculators</button>
+        </div>
+      </div>
+      <div class="grid" id="project-grid">
+        <a class="project" href="./Age%20calculator/index.html" data-category="Calculators" data-search="age calculator birthday date years months days">
+          <div class="project-top"><div class="icon-box" style="--accent:#c5f467;--tint:rgba(197,244,103,.09)">◷</div><span class="project-number">PROJECT / 01</span></div>
+          <h3>Age Calculator</h3><p>Calculate age from a birth date and find out how much time has passed.</p><div class="card-bottom"><span class="chip">DATE & TIME</span><span class="launch">Open project <span>↗</span></span></div>
+        </a>
+        <a class="project" href="./Blob%20maker/index.html" data-category="Creative" data-search="blob maker shape design border radius organic">
+          <div class="project-top"><div class="icon-box" style="--accent:#b8a1ff;--tint:rgba(184,161,255,.09)">◉</div><span class="project-number">PROJECT / 02</span></div>
+          <h3>Blob Maker</h3><p>Create playful organic shapes and experiment with their dimensions.</p><div class="card-bottom"><span class="chip">SHAPE DESIGN</span><span class="launch">Open project <span>↗</span></span></div>
+        </a>
+        <a class="project" href="./counter%20application/index.html" data-category="Tools" data-search="counter application increment decrement number click">
+          <div class="project-top"><div class="icon-box" style="--accent:#75e1df;--tint:rgba(117,225,223,.09)">＋</div><span class="project-number">PROJECT / 03</span></div>
+          <h3>Counter Application</h3><p>A simple interactive counter to increase, decrease, and track a value.</p><div class="card-bottom"><span class="chip">INTERACTION</span><span class="launch">Open project <span>↗</span></span></div>
+        </a>
+        <a class="project" href="./Day%20of%20the%20week/index.html" data-category="Tools" data-search="day of the week calendar date today weekday">
+          <div class="project-top"><div class="icon-box" style="--accent:#ffbd79;--tint:rgba(255,189,121,.09)">▦</div><span class="project-number">PROJECT / 04</span></div>
+          <h3>Day of the Week</h3><p>Find the current weekday with a little date-based interaction.</p><div class="card-bottom"><span class="chip">DATE & TIME</span><span class="launch">Open project <span>↗</span></span></div>
+        </a>
+        <a class="project" href="./finance%20deposit%20calculator/index.html" data-category="Calculators" data-search="finance fixed deposit calculator investment interest returns money">
+          <div class="project-top"><div class="icon-box" style="--accent:#91e59c;--tint:rgba(145,229,156,.09)">₹</div><span class="project-number">PROJECT / 05</span></div>
+          <h3>FD Calculator</h3><p>Explore a fixed-deposit estimate using investment and interest inputs.</p><div class="card-bottom"><span class="chip">FINANCE</span><span class="launch">Open project <span>↗</span></span></div>
+        </a>
+        <a class="project" href="./Gradient%20generator/index.html" data-category="Creative" data-search="gradient generator color background css design palette">
+          <div class="project-top"><div class="icon-box" style="--accent:#ff8ec7;--tint:rgba(255,142,199,.09)">◒</div><span class="project-number">PROJECT / 06</span></div>
+          <h3>Gradient Generator</h3><p>Mix colors and generate gradient backgrounds for your next design.</p><div class="card-bottom"><span class="chip">COLOR STUDIO</span><span class="launch">Open project <span>↗</span></span></div>
+        </a>
+        <a class="project" href="./image%20editor/index.html" data-category="Creative" data-search="image editor photo filters blur brightness contrast saturation">
+          <div class="project-top"><div class="icon-box" style="--accent:#75b6ff;--tint:rgba(117,182,255,.09)">▧</div><span class="project-number">PROJECT / 07</span></div>
+          <h3>Image Editor</h3><p>Try visual adjustments and filters to give an image a different look.</p><div class="card-bottom"><span class="chip">IMAGE TOOLS</span><span class="launch">Open project <span>↗</span></span></div>
+        </a>
+        <a class="project" href="./Live%20word%20counter/index.html" data-category="Tools" data-search="live word counter text character sentence typing writing">
+          <div class="project-top"><div class="icon-box" style="--accent:#f4dc72;--tint:rgba(244,220,114,.09)">¶</div><span class="project-number">PROJECT / 08</span></div>
+          <h3>Live Word Counter</h3><p>Watch word and character counts update as you type or edit text.</p><div class="card-bottom"><span class="chip">WRITING TOOL</span><span class="launch">Open project <span>↗</span></span></div>
+        </a>
+        <a class="project" href="./Love%20Calculator/index.html" data-category="Calculators" data-search="love calculator names fun playful compatibility">
+          <div class="project-top"><div class="icon-box" style="--accent:#ff8da1;--tint:rgba(255,141,161,.09)">♡</div><span class="project-number">PROJECT / 09</span></div>
+          <h3>Love Calculator</h3><p>A playful name-based calculator made for fun, not real compatibility advice.</p><div class="card-bottom"><span class="chip">JUST FOR FUN</span><span class="launch">Open project <span>↗</span></span></div>
+        </a>
+        <a class="project" href="./Stop%20watch%20timer/index.html" data-category="Tools" data-search="stopwatch timer clock countdown elapsed time">
+          <div class="project-top"><div class="icon-box" style="--accent:#c5f467;--tint:rgba(197,244,103,.09)">◴</div><span class="project-number">PROJECT / 10</span></div>
+          <h3>Stopwatch & Timer</h3><p>Track elapsed time with a lightweight stopwatch and timer interface.</p><div class="card-bottom"><span class="chip">TIME TOOL</span><span class="launch">Open project <span>↗</span></span></div>
+        </a>
+        <div class="empty" id="empty">No projects match that search. Try another keyword.</div>
+      </div>
+    </section>
+
+    <section id="about" style="padding:0 0 45px">
+      <div class="section-head"><div><div class="section-kicker">Behind the build</div><h2>Built to learn by doing.</h2></div></div>
+      <p style="max-width:720px;color:var(--muted);font-size:13px;line-height:1.9;margin:0">This collection brings together ten small web projects built with HTML, CSS, and JavaScript. Each project runs from its own folder, so you can explore it independently. Use the cards above to launch any project.</p>
+    </section>
+  </main>
+
+  <footer><div><span class="footer-brand">JS LAB</span> <span>· Ten projects, one collection.</span></div><div>Made with HTML, CSS & JavaScript</div></footer>
+  <script>
+    const searchInput = document.getElementById('search');
+    const cards = [...document.querySelectorAll('.project')];
+    const filters = [...document.querySelectorAll('.filter')];
+    const empty = document.getElementById('empty');
+    let activeFilter = 'All';
+
+    function updateProjects() {
+      const query = searchInput.value.trim().toLowerCase();
+      let visible = 0;
+      cards.forEach(card => {
+        const matchesText = (card.dataset.search + ' ' + card.innerText).toLowerCase().includes(query);
+        const matchesFilter = activeFilter === 'All' || card.dataset.category === activeFilter;
+        const show = matchesText && matchesFilter;
+        card.style.display = show ? 'flex' : 'none';
+        if (show) visible++;
+      });
+      empty.style.display = visible ? 'none' : 'block';
+    }
+
+    searchInput.addEventListener('input', updateProjects);
+    filters.forEach(button => button.addEventListener('click', () => {
+      activeFilter = button.dataset.filter;
+      filters.forEach(item => {
+        const isActive = item === button;
+        item.classList.toggle('active', isActive);
+        item.setAttribute('aria-pressed', String(isActive));
+      });
+      updateProjects();
+    }));
+    filters.forEach(button => button.setAttribute('aria-pressed', String(button.classList.contains('active'))));
+  </script>
+</body>
+</html>

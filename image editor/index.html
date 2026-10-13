@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="editor">
+            <div class="filter">
+                <label for="blur">Blur</label>
+                <input type="range" id="blur" min="0" max="5" value="0" step="0.1">
+                <span class="rangevalue" id="blurvalue">0%</span>
+            </div>
+             <div class="filter">
+                <label for="contrast">Contrast</label>
+                <input type="range" id="contrast" min="0" max="100" value="0" step="0.1">
+                <span class="rangevalue" id="contrastvalue">100%</span>
+            </div>
+             <div class="filter">
+                <label for="huerotate">Hue Rotate</label>
+                <input type="range" id="huerotate" min="0" max="360" value="0" step="0.1">
+                <span class="rangeclass" id="huerotatevalue">0%</span>
+            </div>
+             <div class="filter">
+                <label for="sepia">Sepia</label>
+                <input type="range" id="sepia" min="0" max="100" value="0" step="0.1">
+                <span class="rangeclass" id="sepiavalue">0%</span>
+            </div>
+            <div class="flip-buttons">
+                <div class="flip-option">
+                    <input type="radio" name="flip" id="no-flip" checked>
+                    <label for="no-flip">No Flip</label>
+                </div>
+                <div class="flip-option">
+                    <input type="radio" name="flip" id="flip-x">
+                    <label for="flip-x">Flip Horizontally</label>
+                </div>
+                <div class="flip-option">
+                    <input type="radio" name="flip" id="flip-y">
+                    <label for="flip-y">Flip vertically</label>
+                </div>
+            </div>
+        </div>
+        <div class="result">
+            <figure class="image-container">
+                <img id="choosen-image">
+            </figure>
+            <input type="file" name="" id="upload-btn" accept="Image/*">
+            <label for="upload-btn">Upload an Image</label>
+            <button id="download-btn">Download Image</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+body{
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg,rgb(1, 1, 110),rgb(1, 0, 19));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: white;
+    width: min(90vw, 450px);
+    min-width: 320px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+.stopwatch{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.timer{
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 5px;
+    font-weight: bold;
+    font-size: larger;
+    height: 35px;
+    text-align: center;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: cursive;
+}
+.control{
+    margin-top: 10px;
+}
+button{
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgb(5, 1, 71);
+    color: white;
+    font-family: monospace;
+    letter-spacing: 1px;
+    transition: 0.3s ease all;
+    margin-left: 3px;
+}
+button:hover{
+    background-color:rgb(3, 3, 199) ;
+    scale: 1.05;
+}
+ul{
+    padding: 5px;
+    width: 320px;
+    text-align: left;
+    margin: 0;
+    overflow-y: auto;
+    list-style-type: none;
+    max-height: 200px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgb(5, 1, 71);
+}
+span{
+    font-weight: bolder;
+}
